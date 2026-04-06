@@ -1,91 +1,91 @@
 # CLAUDE.md
 
-## Project Overview
+## プロジェクト概要
 
-**yonago-kankou** is a static, single-page tourism infographic for the Yonago area (米子エリア) in Tottori Prefecture, Japan. It showcases 8 tourist attractions with interactive charts and a visual gallery.
+**yonago-kankou** は、鳥取県米子エリアの観光インフォグラフィックを表示する静的シングルページWebアプリケーションです。8つの観光スポットをインタラクティブなチャートとビジュアルギャラリーで紹介します。
 
-## Tech Stack
+## 技術スタック
 
-- **HTML5** — Single `index.html` file, Japanese language (`lang="ja"`)
-- **Tailwind CSS** — Loaded via CDN (`https://cdn.tailwindcss.com`)
-- **Chart.js** — Loaded via CDN for bar, doughnut, and radar charts
-- **Google Fonts** — Noto Sans JP (body), Poppins (headings)
-- **Vanilla JavaScript** — No framework; data embedded directly in `<script>` tags
+- **HTML5** — 単一の `index.html` ファイル、日本語対応（`lang="ja"`）
+- **Tailwind CSS** — CDN経由で読み込み（`https://cdn.tailwindcss.com`）
+- **Chart.js** — CDN経由で読み込み。棒グラフ、ドーナツチャート、レーダーチャートに使用
+- **Google Fonts** — Noto Sans JP（本文）、Poppins（見出し）
+- **バニラJavaScript** — フレームワーク不使用。データは `<script>` タグ内に直接埋め込み
 
-There is **no build process**, no `package.json`, no bundler. The site is fully static and can be served by any web server or opened directly in a browser.
+**ビルドプロセスなし**、`package.json` なし、バンドラーなし。完全に静的なサイトで、任意のWebサーバーで配信するか、ブラウザで直接開くことができます。
 
-## Repository Structure
+## リポジトリ構成
 
 ```
 yonago-kankou/
-├── index.html      # Entire application (HTML + CSS + JS)
-├── CLAUDE.md       # This file
+├── index.html      # アプリケーション全体（HTML + CSS + JS）
+├── CLAUDE.md       # このファイル
 └── .git/
 ```
 
-## Architecture
+## アーキテクチャ
 
-The application is a single HTML file with:
+アプリケーションは単一のHTMLファイルで構成されています：
 
-1. **Embedded data** — A JavaScript array of tourist spot objects with properties: `name`, `price`, `priceDisplay`, `purpose`, `feeling`, `rating`, `description`
-2. **Inline styles** — Minimal custom CSS in a `<style>` block; Tailwind handles most styling
-3. **Chart.js canvases** — Three charts rendered on page load:
-   - Horizontal bar chart (admission fee comparison)
-   - Doughnut chart (spots by visitor category)
-   - Radar chart (emotional keywords analysis)
-4. **Static card gallery** — 2-column responsive grid of spot detail cards
+1. **埋め込みデータ** — 観光スポットオブジェクトのJavaScript配列。プロパティ: `name`、`price`、`priceDisplay`、`purpose`、`feeling`、`rating`、`description`
+2. **インラインスタイル** — `<style>` ブロック内の最小限のカスタムCSS。スタイリングの大部分はTailwindが担当
+3. **Chart.jsキャンバス** — ページ読み込み時に3つのチャートを描画：
+   - 横棒グラフ（入場料比較）
+   - ドーナツチャート（訪問者カテゴリ別スポット）
+   - レーダーチャート（感情キーワード分析）
+4. **スポットカードギャラリー** — 2カラムのレスポンシブグリッドで各スポットの詳細を表示
 
-### Design System
+### デザインシステム
 
-Color palette ("Energetic & Playful"):
-- `#FF6B6B` (red), `#FFD166` (yellow), `#06D6A0` (green), `#118AB2` (blue/primary), `#073B4C` (dark blue/text)
+カラーパレット（「エネルギッシュ＆プレイフル」）：
+- `#FF6B6B`（赤）、`#FFD166`（黄）、`#06D6A0`（緑）、`#118AB2`（青/メイン）、`#073B4C`（濃紺/テキスト）
 
-Responsive breakpoint: `md:` (768px) for chart heights and grid layouts.
+レスポンシブブレークポイント: `md:`（768px）でチャートの高さとグリッドレイアウトを切り替え。
 
-## Current State
+## 現在の状態
 
-The `index.html` file was deleted in recent commits. The original content exists in git history at commit `5d6ea0c`. To restore:
+`index.html` は直近のコミットで削除されています。元のコンテンツはコミット `5d6ea0c` のgit履歴に存在します。復元するには：
 
 ```bash
 git checkout 5d6ea0c -- index.html
 ```
 
-## Development Workflow
+## 開発ワークフロー
 
-### Running Locally
+### ローカル実行
 
-Open `index.html` directly in a browser, or use any local server:
+`index.html` をブラウザで直接開くか、ローカルサーバーを使用：
 
 ```bash
 python3 -m http.server 8000
-# or
+# または
 npx serve .
 ```
 
-### Making Changes
+### 変更の加え方
 
-- All code lives in `index.html` — edit HTML, CSS, and JS in one file
-- No compilation or build step required
-- Refresh the browser to see changes
-- CDN dependencies require internet access
+- すべてのコードは `index.html` 内 — HTML、CSS、JSを1ファイルで編集
+- コンパイルやビルド手順は不要
+- ブラウザをリフレッシュして変更を確認
+- CDN依存のためインターネット接続が必要
 
-### Testing
+### テスト
 
-No automated test suite. Verify changes by:
-- Opening in a browser and checking all 3 charts render
-- Testing responsive layout at mobile and desktop widths
-- Confirming Japanese text displays correctly (requires Noto Sans JP font)
+自動テストスイートはありません。以下の方法で変更を確認：
+- ブラウザで開き、3つのチャートがすべて正しく描画されることを確認
+- モバイルとデスクトップの両方の幅でレスポンシブレイアウトをテスト
+- 日本語テキストが正しく表示されることを確認（Noto Sans JPフォントが必要）
 
-## Conventions
+## コーディング規約
 
-- **Language**: All user-facing text is in Japanese; code comments are in English
-- **No build tools**: Keep the project as a single static HTML file unless explicitly requested otherwise
-- **CDN-only dependencies**: Do not add npm packages or a build pipeline without explicit instruction
-- **Inline everything**: CSS and JS stay in `index.html` to keep the single-file simplicity
-- **Data format**: Tourist spot data is a JS array of objects — add new spots by appending to the array
+- **言語**: ユーザー向けテキストはすべて日本語。コードコメントは英語
+- **ビルドツール不使用**: 明示的な指示がない限り、単一の静的HTMLファイルとして維持すること
+- **CDNのみの依存関係**: 明示的な指示がない限り、npmパッケージやビルドパイプラインを追加しないこと
+- **すべてインライン**: シングルファイルの簡潔さを保つため、CSSとJSは `index.html` 内に記述
+- **データ形式**: 観光スポットデータはJSオブジェクトの配列 — 新しいスポットは配列に追加する
 
-## Key Data
+## 主要データ
 
-8 featured spots: 大山, とっとり花回廊, 水木しげるロード, 足立美術館, 植田正治写真美術館, 皆生温泉, 米子城跡, 夢みなとタワー
+掲載スポット（8件）: 大山、とっとり花回廊、水木しげるロード、足立美術館、植田正治写真美術館、皆生温泉、米子城跡、夢みなとタワー
 
-Price range: Free to ¥2,300. Ratings: 1-3 stars.
+料金範囲: 無料〜¥2,300。評価: 1〜3つ星。
