@@ -18,6 +18,7 @@ core.load_model(SPEAKER)
 READINGS = {
     "Anthropic": "アンソロピック",
     "Opus": "オーパス",
+    "Mythos": "ミュトス",
 }
 
 sections = json.load(open(os.path.join(HERE, "narration.json")))["sections"]
