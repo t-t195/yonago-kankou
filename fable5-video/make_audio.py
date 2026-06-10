@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""VOICEVOX (四国めたん) でナレーション音声を生成する。
+"""VOICEVOX でナレーション音声を生成する。
 要: LD_LIBRARY_PATH に libvoicevox_core.so / libonnxruntime.so のあるディレクトリ"""
 import json
 import os
@@ -14,10 +14,19 @@ SPEAKER = 30  # No.7 アナウンス(落ち着いた女性・アナウンサー�
 core = VoicevoxCore(open_jtalk_dict_dir=DICT)
 core.load_model(SPEAKER)
 
+# TTSに渡すときだけ適用する読み替え(スライド表記は英字のまま)
+READINGS = {
+    "Anthropic": "アンソロピック",
+    "Opus": "オーパス",
+}
+
 sections = json.load(open(os.path.join(HERE, "narration.json")))["sections"]
 total = 0.0
 for sec in sections:
-    query = core.audio_query(sec["text"], SPEAKER)
+    text = sec["text"]
+    for word, reading in READINGS.items():
+        text = text.replace(word, reading)
+    query = core.audio_query(text, SPEAKER)
     query.speed_scale = 1.10
     query.pre_phoneme_length = 0.6   # 頭の余白
     query.post_phoneme_length = 0.9  # 末尾の余白
