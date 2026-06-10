@@ -9,7 +9,7 @@ from voicevox_core import VoicevoxCore
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DICT = "/tmp/open_jtalk_dic_utf_8-1.11"
-SPEAKER = 2  # 四国めたん ノーマル
+SPEAKER = 30  # No.7 アナウンス(落ち着いた女性・アナウンサー風)
 
 core = VoicevoxCore(open_jtalk_dict_dir=DICT)
 core.load_model(SPEAKER)
@@ -18,7 +18,7 @@ sections = json.load(open(os.path.join(HERE, "narration.json")))["sections"]
 total = 0.0
 for sec in sections:
     query = core.audio_query(sec["text"], SPEAKER)
-    query.speed_scale = 1.13
+    query.speed_scale = 1.10
     query.pre_phoneme_length = 0.6   # 頭の余白
     query.post_phoneme_length = 0.9  # 末尾の余白
     wav = core.synthesis(query, SPEAKER)

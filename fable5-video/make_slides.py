@@ -58,7 +58,7 @@ def base(num, label):
         d.text((80, 48), f"{num:02d}", font=F_NUM, fill=ACCENT)
         d.text((150, 52), label, font=F_SMALL, fill=GREY)
     # フッター
-    d.text((80, H - 52), "出典: ChatGPT研究所の解説記事をもとに作成 ／ 音声: VOICEVOX 四国めたん", font=F_TINY, fill=(110, 125, 148))
+    d.text((80, H - 52), "出典: ChatGPT研究所の解説記事をもとに作成 ／ 音声: VOICEVOX No.7", font=F_TINY, fill=(110, 125, 148))
     if num:
         d.text((W - 120, H - 52), f"{num}/8", font=F_TINY, fill=(110, 125, 148))
     return img, d
