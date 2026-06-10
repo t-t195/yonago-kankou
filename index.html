@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RISTORANTE — Modern Italian Dining in Yonago</title>
+<meta name="description" content="A wa-modern Italian restaurant in Yonago, near Kaike Onsen. Open kitchen, 110 seats, local San'in ingredients. Reserve your table.">
+<!-- TODO: 店名確定後に title / description / OGP を更新 -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --kinari:#f6f3ec;      /* 生成り — base */
+  --kinari-deep:#ece7db;
+  --sumi:#211e1a;        /* 墨 — text */
+  --sumi-soft:#4a463f;
+  --shu:#b04a32;         /* 朱 × terracotta — accent */
+  --matcha:#707450;      /* 抹茶 — secondary */
+  --line:rgba(33,30,26,.16);
+  --serif:"Cormorant Garamond", serif;
+  --sans:"Karla", sans-serif;
+  --jp:"Noto Serif JP", serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--kinari);
+  color:var(--sumi);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.8;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+}
+::selection{background:var(--shu);color:var(--kinari)}
+
+/* ---------- texture ---------- */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- typography helpers ---------- */
+.serif{font-family:var(--serif)}
+.label{
+  font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--shu);font-weight:500;display:flex;align-items:center;gap:1rem;
+}
+.label::before{content:"";width:2.4rem;height:1px;background:var(--shu)}
+h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.15;letter-spacing:.01em;
+  margin:1.2rem 0 1.6rem;
+}
+.jp-note{font-family:var(--jp);font-weight:300;color:var(--sumi-soft);font-size:.85rem;letter-spacing:.3em}
+
+/* ---------- vertical JP accent ---------- */
+.tate{
+  writing-mode:vertical-rl;font-family:var(--jp);font-weight:300;
+  letter-spacing:.5em;color:var(--sumi-soft);font-size:.8rem;
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.4rem 4vw;
+  transition:background .4s,box-shadow .4s,padding .4s;
+}
+nav.scrolled{background:rgba(246,243,236,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:.9rem 4vw}
+.nav-logo{font-family:var(--serif);font-size:1.25rem;letter-spacing:.18em;font-weight:600;text-decoration:none;color:var(--sumi)}
+.nav-logo span{color:var(--shu)}
+.nav-links{display:flex;gap:2.2rem;align-items:center;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;text-decoration:none;color:var(--sumi);position:relative}
+.nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--shu);transition:width .3s}
+.nav-links a:not(.nav-cta):hover::after{width:100%}
+.nav-cta{border:1px solid var(--sumi);padding:.55em 1.5em;transition:background .3s,color .3s}
+.nav-cta:hover{background:var(--sumi);color:var(--kinari)}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;display:grid;place-items:center;position:relative;
+  padding:0 4vw;overflow:hidden;
+}
+/* PHOTO: ヒーロー背景 — オープンキッチン or 看板料理の写真に差し替え */
+.hero-bg{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 20%, rgba(176,74,50,.10), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 20% 85%, rgba(112,116,80,.12), transparent 60%),
+    linear-gradient(var(--kinari), var(--kinari-deep));
+}
+.hero-kanji{
+  position:absolute;right:6vw;top:50%;transform:translateY(-50%);
+  font-family:var(--jp);font-size:clamp(8rem,22vw,20rem);font-weight:300;
+  color:rgba(33,30,26,.05);line-height:1;writing-mode:vertical-rl;user-select:none;
+}
+.hero-inner{text-align:center;max-width:60rem}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.5em;text-transform:uppercase;color:var(--shu);font-weight:500;margin-bottom:2rem}
+h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(2.8rem,8vw,6.4rem);line-height:1.08;letter-spacing:.01em;
+}
+h1 em{font-style:italic;color:var(--shu)}
+.hero-sub{margin:2.2rem auto 0;max-width:34rem;color:var(--sumi-soft);font-size:.98rem}
+.hero-ctas{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:.7em;
+  font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;
+  padding:1.05em 2.4em;text-decoration:none;transition:all .35s;
+}
+.btn-primary{background:var(--sumi);color:var(--kinari);border:1px solid var(--sumi)}
+.btn-primary:hover{background:var(--shu);border-color:var(--shu)}
+.btn-ghost{border:1px solid var(--sumi);color:var(--sumi)}
+.btn-ghost:hover{background:var(--sumi);color:var(--kinari)}
+.hero-scroll{
+  position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);
+  font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--sumi-soft);
+}
+.hero-scroll::after{
+  content:"";display:block;width:1px;height:3.2rem;background:var(--sumi-soft);
+  margin:.8rem auto 0;animation:drop 2.2s infinite;transform-origin:top;
+}
+@keyframes drop{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* ---------- sections ---------- */
+section{padding:8rem 4vw;position:relative}
+.wrap{max-width:72rem;margin:0 auto}
+.num{font-family:var(--serif);font-style:italic;color:var(--line);font-size:1rem;letter-spacing:.2em}
+
+/* concept */
+.concept-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center}
+@media(max-width:860px){.concept-grid{grid-template-columns:1fr;gap:3rem}}
+.concept-text p{color:var(--sumi-soft);margin-bottom:1.4rem;max-width:32rem}
+.ph{
+  position:relative;background:linear-gradient(135deg,var(--kinari-deep),#ddd5c4);
+  display:grid;place-items:center;overflow:hidden;
+}
+.ph::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.ph small{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sumi-soft);opacity:.65}
+.concept-photo{aspect-ratio:4/5}
+.concept-photo .tate{position:absolute;top:2rem;right:2rem}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:6rem}
+.stat{padding:2.6rem 1rem;text-align:center;border-left:1px solid var(--line)}
+.stat:first-child{border-left:none}
+.stat b{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4vw,3rem);display:block;line-height:1.1}
+.stat b i{font-style:italic;color:var(--shu);font-size:.55em}
+.stat span{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sumi-soft)}
+@media(max-width:640px){.stats{grid-template-columns:1fr}.stat{border-left:none;border-top:1px solid var(--line)}.stat:first-child{border-top:none}}
+
+/* menu */
+.menu-section{background:var(--sumi);color:var(--kinari)}
+.menu-section .label{color:var(--shu)}
+.menu-section .jp-note{color:rgba(246,243,236,.5)}
+.menu-section .num{color:rgba(246,243,236,.12)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
+@media(max-width:860px){.menu-grid{grid-template-columns:1fr}}
+.dish{border:1px solid rgba(246,243,236,.16);padding:1.4rem 1.4rem 2rem;transition:border-color .35s,transform .35s}
+.dish:hover{border-color:var(--shu);transform:translateY(-4px)}
+.dish .ph{aspect-ratio:4/3;background:linear-gradient(135deg,#2c2924,#3a362f);margin-bottom:1.6rem}
+.dish .ph small{color:rgba(246,243,236,.45)}
+.dish h3{font-family:var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.03em}
+.dish p{color:rgba(246,243,236,.6);font-size:.85rem;margin-top:.5rem}
+.menu-note{margin-top:3rem;color:rgba(246,243,236,.55);font-size:.85rem;max-width:38rem}
+
+/* space / gallery */
+.space-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem;margin-top:3.5rem}
+.space-grid .ph:nth-child(1){grid-column:span 7;aspect-ratio:16/10}
+.space-grid .ph:nth-child(2){grid-column:span 5;aspect-ratio:auto}
+.space-grid .ph:nth-child(3){grid-column:span 5;aspect-ratio:auto}
+.space-grid .ph:nth-child(4){grid-column:span 7;aspect-ratio:16/10}
+@media(max-width:760px){.space-grid .ph{grid-column:span 12!important;aspect-ratio:16/10!important}}
+
+/* for hotel guests */
+.guests{background:var(--kinari-deep)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3.5rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{border-top:1px solid var(--sumi);padding-top:1.6rem}
+.step .serif{font-style:italic;color:var(--shu);font-size:1.1rem}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;margin:.4rem 0 .8rem}
+.step p{color:var(--sumi-soft);font-size:.9rem}
+
+/* reserve */
+.reserve{text-align:center}
+.reserve h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+.reserve-sub{color:var(--sumi-soft);max-width:32rem;margin:0 auto}
+.reserve-ctas{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
+.reserve-meta{margin-top:4rem;display:flex;gap:4rem;justify-content:center;flex-wrap:wrap;font-size:.85rem;color:var(--sumi-soft)}
+.reserve-meta b{display:block;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sumi);margin-bottom:.4rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:3rem 4vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.72rem;letter-spacing:.2em;color:var(--sumi-soft)}
+footer .nav-logo{font-size:1rem}
+
+/* sticky reserve (mobile) */
+.sticky-reserve{
+  position:fixed;bottom:1.2rem;left:50%;transform:translate(-50%,140%);
+  z-index:90;transition:transform .4s;
+}
+.sticky-reserve.show{transform:translate(-50%,0)}
+.sticky-reserve .btn{box-shadow:0 8px 30px rgba(33,30,26,.25)}
+@media(min-width:761px){.sticky-reserve{display:none}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#top">RISTORANTE<span>.</span></a>
+  <!-- TODO: 店名・ロゴ確定後に差し替え -->
+  <ul class="nav-links">
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#space">Space</a></li>
+    <li><a href="#guests">For Hotel Guests</a></li>
+    <li><a class="nav-cta" href="#reserve">Reserve</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-kanji">和食感</div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow reveal">Yonago · Tottori — near Kaike Onsen</p>
+    <h1 class="reveal">Italian craft,<br>with a <em>Japanese</em> soul.</h1>
+    <p class="hero-sub reveal">An open-kitchen Italian restaurant in Yonago, where San'in's
+    seasonal harvest — mountain, field and sea — meets the warmth of the Italian table.
+    A short ride from your hotel.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary" href="#reserve">Reserve a Table</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <!-- TODO: InstagramアカウントURLに差し替え -->
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</header>
+
+<!-- ============ CONCEPT ============ -->
+<section id="concept">
+  <div class="wrap">
+    <div class="concept-grid">
+      <div class="concept-text">
+        <p class="num">01</p>
+        <p class="label">Concept</p>
+        <h2>Wa-modern dining,<br>made to linger.</h2>
+        <p class="jp-note">和モダン × イタリアン</p>
+        <p style="margin-top:1.6rem">Clean lines, natural textures, and the quiet rhythm of
+        Japanese hospitality — set around a lively open kitchen where every dish is
+        finished in front of you.</p>
+        <p>Our spacious dining room seats up to 110 guests, from couples at the counter
+        to family tables and group celebrations, all without losing its calm,
+        uncluttered atmosphere.</p>
+      </div>
+      <div class="ph concept-photo reveal">
+        <!-- PHOTO: 店内全景 or オープンキッチン -->
+        <small>Photo — Open Kitchen</small>
+        <span class="tate">米子・皆生</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal"><b>110<i> seats</i></b><span>Spacious dining room</span></div>
+      <div class="stat reveal"><b>Open<i> kitchen</i></b><span>Cooking, in full view</span></div>
+      <div class="stat reveal"><b>San'in<i> local</i></b><span>Seasonal ingredients</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <p class="num">02</p>
+    <p class="label">Menu Highlights</p>
+    <h2>From the San'in coast<br>to the Italian table.</h2>
+    <p class="jp-note">山陰の恵み</p>
+
+    <div class="menu-grid">
+      <!-- TODO: 看板メニュー確定後に料理名・説明を差し替え -->
+      <div class="dish reveal">
+        <div class="ph"><small>Photo — Seafood</small></div>
+        <h3>Catch of the Day</h3>
+        <p>Fresh seafood landed on the nearby San'in coast, served crudo or simply grilled with olive oil and citrus.</p>
+      </div>
+      <div class="dish reveal">
+        <div class="ph"><small>Photo — Pasta</small></div>
+        <h3>Signature Pasta</h3>
+        <p>House-made pasta with seasonal local vegetables and slow-simmered sauces from the open kitchen.</p>
+      </div>
+      <div class="dish reveal">
+        <div class="ph"><small>Photo — Dolce</small></div>
+        <h3>Dolce &amp; Wine</h3>
+        <p>Italian desserts with a Japanese accent, alongside a curated list of Italian wines and local sake.</p>
+      </div>
+    </div>
+    <p class="menu-note">Menus change with the seasons. Vegetarian options available — let us know
+    when you reserve. English menu provided.</p>
+  </div>
+</section>
+
+<!-- ============ SPACE ============ -->
+<section id="space">
+  <div class="wrap">
+    <p class="num">03</p>
+    <p class="label">The Space</p>
+    <h2>Room to breathe.</h2>
+    <p class="jp-note">広く、清潔で、心地よい</p>
+    <div class="space-grid">
+      <div class="ph reveal"><small>Photo — Dining Room</small></div>
+      <div class="ph reveal"><small>Photo — Counter</small></div>
+      <div class="ph reveal"><small>Photo — Detail</small></div>
+      <div class="ph reveal"><small>Photo — Open Kitchen</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOR HOTEL GUESTS ============ -->
+<section class="guests" id="guests">
+  <div class="wrap">
+    <p class="num">04</p>
+    <p class="label">For Hotel Guests</p>
+    <h2>An easy evening out<br>from your hotel.</h2>
+    <p class="jp-note">ご滞在の夜に</p>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="serif">i.</span>
+        <h3>Reserve online</h3>
+        <p>Book in under a minute with our English reservation form — or message us on Instagram. No phone call needed.</p>
+      </div>
+      <div class="step reveal">
+        <span class="serif">ii.</span>
+        <h3>A short ride away</h3>
+        <p>Minutes from Kaike Onsen hotels and central Yonago by taxi. Show your driver our address in Japanese — it's on the form confirmation.</p>
+        <!-- TODO: 住所確定後、所要時間・行き方を具体化 -->
+      </div>
+      <div class="step reveal">
+        <span class="serif">iii.</span>
+        <h3>Relax, we'll do the rest</h3>
+        <p>English menu, open-kitchen seats, and room for groups up to 110 — just bring your appetite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVE ============ -->
+<section class="reserve" id="reserve">
+  <div class="wrap">
+    <p class="label" style="justify-content:center">Reservation</p>
+    <h2 class="reveal">Your table is <em class="serif" style="color:var(--shu)">waiting.</em></h2>
+    <p class="reserve-sub reveal">Reservations in English, in about one minute.
+    Questions? Send us a DM on Instagram — we reply quickly.</p>
+    <div class="reserve-ctas reveal">
+      <a class="btn btn-primary" href="https://forms.google.com/" target="_blank" rel="noopener">Reserve via Google Form</a>
+      <!-- TODO: 予約用GoogleフォームURLに差し替え -->
+      <a class="btn btn-ghost" href="https://www.instagram.com/" target="_blank" rel="noopener">DM on Instagram</a>
+      <!-- TODO: InstagramアカウントURLに差し替え -->
+    </div>
+    <div class="reserve-meta reveal">
+      <!-- TODO: 営業時間・定休日・住所を確定情報に差し替え -->
+      <div><b>Hours</b>Dinner 17:30 – 22:00<br>(L.O. 21:00)</div>
+      <div><b>Closed</b>—</div>
+      <div><b>Address</b>Yonago, Tottori, Japan</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="nav-logo" href="#top">RISTORANTE<span>.</span></a>
+  <p>© 2026 — Yonago, Tottori, Japan</p>
+</footer>
+
+<div class="sticky-reserve" id="stickyReserve">
+  <a class="btn btn-primary" href="#reserve">Reserve a Table</a>
+</div>
+
+<script>
+// nav background on scroll + sticky mobile CTA
+const nav = document.getElementById('nav');
+const sticky = document.getElementById('stickyReserve');
+const reserveSec = document.getElementById('reserve');
+addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', scrollY > 40);
+  const past = scrollY > innerHeight * .8;
+  const atReserve = reserveSec.getBoundingClientRect().top < innerHeight;
+  sticky.classList.toggle('show', past && !atReserve);
+}, {passive:true});
+
+// scroll reveal
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// hero items reveal immediately
+document.querySelectorAll('.hero .reveal').forEach((el,i) => {
+  setTimeout(() => el.classList.add('in'), 150 + i*180);
+});
+</script>
+</body>
+</html>
