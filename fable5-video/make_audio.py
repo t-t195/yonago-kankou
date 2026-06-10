@@ -28,6 +28,8 @@ for sec in sections:
         text = text.replace(word, reading)
     query = core.audio_query(text, SPEAKER)
     query.speed_scale = 1.10
+    query.pitch_scale = 0.04         # 少し高めで明るい印象に
+    query.intonation_scale = 1.15    # 抑揚を付けて柔らかく
     query.pre_phoneme_length = 0.6   # 頭の余白
     query.post_phoneme_length = 0.9  # 末尾の余白
     wav = core.synthesis(query, SPEAKER)
