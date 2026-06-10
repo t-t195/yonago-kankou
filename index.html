@@ -127,6 +127,26 @@ h1 em{font-style:italic;color:var(--shu)}
 }
 @keyframes drop{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
+/* ---------- instagram strip ---------- */
+.ig{padding:6rem 4vw;border-bottom:1px solid var(--line)}
+.ig-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2.6rem}
+.ig-head h2{margin-bottom:0;font-size:clamp(1.8rem,3.5vw,2.6rem)}
+.ig-handle{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--sumi);text-decoration:none;display:inline-flex;align-items:center;gap:.7em}
+.ig-handle::after{content:"→";letter-spacing:0;transition:transform .3s}
+.ig-handle:hover::after{transform:translateX(5px)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+@media(max-width:860px){.ig-grid{grid-template-columns:1fr;max-width:30rem;margin:0 auto}}
+.ig-slot{position:relative;min-height:24rem;background:linear-gradient(135deg,var(--kinari-deep),#ddd5c4)}
+.ig-slot::before{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
+.ig-slot .ig-ph-label{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sumi-soft);opacity:.65;
+}
+.ig-slot blockquote.instagram-media,.ig-slot iframe.instagram-media{
+  position:relative;z-index:2;margin:0!important;width:100%!important;min-width:0!important;max-width:100%!important;
+  border:none!important;box-shadow:none!important;background:var(--kinari)!important;
+}
+
 /* ---------- sections ---------- */
 section{padding:8rem 4vw;position:relative}
 .wrap{max-width:72rem;margin:0 auto}
@@ -245,6 +265,43 @@ footer .nav-logo{font-size:1rem}
   </div>
   <div class="hero-scroll">Scroll</div>
 </header>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="ig" id="instagram">
+  <div class="wrap">
+    <div class="ig-head reveal">
+      <div>
+        <p class="label">Follow Along</p>
+        <h2>Tonight, from the open kitchen.</h2>
+      </div>
+      <a class="ig-handle" href="https://www.instagram.com/" target="_blank" rel="noopener">@instagram</a>
+      <!-- TODO: InstagramアカウントURL・@ハンドル名に差し替え -->
+    </div>
+    <div class="ig-grid">
+      <!--
+        TODO: 埋め込みたい投稿のURLが確定したら、各 blockquote の
+        data-instgrm-permalink と href を実際の投稿URL
+        (例: https://www.instagram.com/p/XXXXXXXXXXX/)に差し替える。
+        差し替えると末尾の embed.js が自動でレンダリングします。
+      -->
+      <div class="ig-slot reveal">
+        <span class="ig-ph-label">Instagram Post 1</span>
+        <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14"
+          style="display:none"><a href=""></a></blockquote>
+      </div>
+      <div class="ig-slot reveal">
+        <span class="ig-ph-label">Instagram Post 2</span>
+        <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14"
+          style="display:none"><a href=""></a></blockquote>
+      </div>
+      <div class="ig-slot reveal">
+        <span class="ig-ph-label">Instagram Post 3</span>
+        <blockquote class="instagram-media" data-instgrm-permalink="" data-instgrm-version="14"
+          style="display:none"><a href=""></a></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ CONCEPT ============ -->
 <section id="concept">
@@ -400,6 +457,21 @@ const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
 }), {threshold:.15});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Instagram embeds: 投稿URLがセットされた blockquote だけ表示してレンダリング
+document.querySelectorAll('.ig-slot').forEach(slot => {
+  const bq = slot.querySelector('blockquote.instagram-media');
+  if (bq && bq.dataset.instgrmPermalink) {
+    bq.style.display = '';
+    bq.querySelector('a').href = bq.dataset.instgrmPermalink;
+    slot.querySelector('.ig-ph-label').style.display = 'none';
+  }
+});
+if (document.querySelector('blockquote.instagram-media[data-instgrm-permalink]:not([data-instgrm-permalink=""])')) {
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://www.instagram.com/embed.js';
+  document.body.appendChild(s);
+}
 
 // hero items reveal immediately
 document.querySelectorAll('.hero .reveal').forEach((el,i) => {
