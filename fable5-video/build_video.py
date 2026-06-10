@@ -50,12 +50,12 @@ bgm = (
     f"sine=frequency=523.25:duration={total:.1f}[s4];"
     "[s1][s2][s3][s4]amix=inputs=4:normalize=1,"
     "lowpass=f=700,tremolo=f=0.1:d=0.3,"
-    f"afade=t=in:st=0:d=4,afade=t=out:st={total - 6:.1f}:d=6,volume=0.07[bgm]"
+    f"afade=t=in:st=0:d=4,afade=t=out:st={total - 6:.1f}:d=6,volume=0.09[bgm]"
 )
 run([
     "ffmpeg", "-y", "-loglevel", "error",
     "-i", f"{SEG}/concat.mp4",
-    "-filter_complex", bgm + ";[0:a][bgm]amix=inputs=2:duration=first:normalize=0[a]",
+    "-filter_complex", bgm + ";[0:a][bgm]amix=inputs=2:duration=first:normalize=0,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=44100,aformat=channel_layouts=stereo[a]",
     "-map", "0:v", "-map", "[a]",
     "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
     "-movflags", "+faststart",
