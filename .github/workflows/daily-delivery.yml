@@ -1,0 +1,51 @@
+name: daily-delivery
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 0:00 UTC = 9:00 JST（GitHubのcronは最大15〜30分遅れることがある）
+  workflow_dispatch:
+
+concurrency:
+  group: daily-delivery
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+env:
+  # モデルIDは変動の速い事実のためここで一元管理する
+  MODEL_ID: claude-sonnet-4-6
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Generate and deliver today's lesson
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/daily-delivery.mjs
+
+      - name: Commit delivery record
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add deliveries/ progress.json
+          if git diff --cached --quiet; then
+            echo "コミット対象なし（配信済みスキップ or リマインドのみ）"
+            exit 0
+          fi
+          git commit -m "deliver: $(TZ=Asia/Tokyo date +%F) の学習配信を記録 [skip ci]"
+          for i in 1 2 3; do
+            git push && exit 0
+            echo "push失敗。rebaseして再試行 ($i/3)"
+            sleep $((i * 2))
+            git pull --rebase
+          done
+          exit 1

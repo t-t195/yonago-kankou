@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-05-29",
+  "current_day": 8,
+  "days": {
+    "1": { "status": "completed_externally", "theme": "AIは結局、何をしている機械なのか", "note": "チャット運用で完了（2026-05-29）。ログはNotion「AI学習ログ（5ヶ月計画）」参照" },
+    "2": { "status": "completed_externally", "theme": "なぜAIは平気で嘘をつくのか（ハルシネーション）", "note": "チャット運用で完了" },
+    "3": { "status": "completed_externally", "theme": "AIの得意・不得意マップ", "note": "チャット運用で完了" },
+    "4": { "status": "completed_externally", "theme": "「AI」とひとくくりにされるものの正体", "note": "チャット運用で完了" },
+    "5": { "status": "completed_externally", "theme": "Week 1 振り返り（Day 1〜4）＋小テスト", "note": "チャット運用で完了（再実施あり）" },
+    "6": { "status": "completed_externally", "theme": "テキストAI3強の違い（ChatGPT/Claude/Gemini）", "note": "チャット運用で完了" },
+    "7": { "status": "completed_externally", "theme": "ChatGPTを使い込む", "note": "チャット運用で完了" },
+    "8": {
+      "status": "awaiting_answers",
+      "theme": "ClaudeとGeminiを検証し、メインAIを選定する",
+      "delivered_at": "2026-06-12",
+      "delivered_by": "chat",
+      "completed_at": null,
+      "answered_count": 0,
+      "log_file": null
+    }
+  },
+  "weekly_tests": {},
+  "review_queue": [
+    "カットオフは特定の日付の暗記ではなく「どのAIにも学習の区切りがある」という原理で持つ",
+    "要約は事実の混入に注意（人が確認）。コピー大量生成は得意だが選ぶのは人間",
+    "web検索を使ってもハルシネーションはゼロにならない。人の最終確認は必須"
+  ]
+}
