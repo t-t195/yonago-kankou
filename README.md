@@ -1,32 +1,40 @@
-# 米子観光ガイド（DISCOVER YONAGO）
+# サイト/LP制作 テンプレート & skills ベースキット
 
-鳥取県米子エリアの観光情報を地元目線で発信する事業用ウェブサイト。
+企業・事業用ホームページ/LP制作を再現性高く進めるための「設計書・仕様書の型」と「Claude Code skills」のベースリポジトリ。
 
-## 制作進行フロー（状況）
+## 構成
 
-| フェーズ | 状態 | 成果物 |
-|---|---|---|
-| 1. リサーチ・戦略 | ✅ 完了 | [docs/01_research-strategy.md](docs/01_research-strategy.md) |
-| 2. ワイヤーフレーム | ✅ 完了 | [docs/02_wireframe.md](docs/02_wireframe.md) |
-| 3. デザイン | ✅ 完了 | [docs/03_design-guide.md](docs/03_design-guide.md) |
-| 4. 構築 | ✅ 完了 | `index.html` / `css/` / `js/` |
-| 5. コンテンツ反映 | ✅ 完了（運営者情報のみ【要編集】） | 本文・構造化データ・FAQ |
-| 6. 最終動作確認 | ✅ 自動チェック完了 / 実機確認は公開前に | [docs/04_launch-checklist.md](docs/04_launch-checklist.md) |
-| 7. サイト公開 | ⏳ サーバー未定（GitHub Pages推奨） | 手順は docs/04 参照 |
-
-追加・削除した項目と費用の確認事項は [docs/05_additions-deletions.md](docs/05_additions-deletions.md) にまとめています。
-
-## ローカルでの確認方法
-
-```bash
-python3 -m http.server 8000
-# → http://localhost:8000 を開く
+```
+WORKFLOW.md            … 全体フロー・運用ルール（まずこれを読む）
+QUALITY-ROADMAP.md     … 精度を上げるために次に足すものの優先順位
+templates/             … 設計書・仕様書の型 11種（案件ごとにコピーして使う）
+.claude/skills/        … Claude Code skills 8種（/hearing 〜 /qa-launch）
+projects/              … 案件ごとの成果物置き場
+docs/ index.html ほか  … 型を一通り使って作った実例（米子観光ガイド）
 ```
 
-ビルド不要の静的サイトです（HTML/CSS/JSのみ・外部依存はGoogle Fontsのみ）。
+## 制作フロー（型とskillsの対応）
 
-## 公開前にやること
+| フェーズ | 型 | skill |
+|---|---|---|
+| ヒアリング・要件定義 | templates/00, 01 | `/hearing` |
+| リサーチ | templates/02 | `/research` |
+| 構成・ワイヤーフレーム | templates/03, 04 | `/structure` |
+| デザイン | templates/05 | `/design` |
+| コピー・原稿 | templates/06 | `/copy` |
+| 構築 | templates/07 | `/build` |
+| SEO/AIO | templates/08 | `/seo-aio` |
+| 検証・公開・運用 | templates/09, 10 | `/qa-launch` |
 
-1. `【要編集】` 箇所（運営者名・代表メッセージ・連絡先）を記入
-2. `<!-- PHOTO: -->` 箇所に実写真を配置
-3. 公開URL確定後、`index.html` / `robots.txt` / `sitemap.xml` / `llms.txt` の仮URL（t-t195.github.io）を一括置換
+## 使い方
+
+1. Claude Codeでこのリポジトリを開く
+2. `/hearing <案件名>` から開始 → `projects/<案件名>/` に型がコピーされ、対話で埋まっていく
+3. 各フェーズの承認を経て次へ（詳細は [WORKFLOW.md](WORKFLOW.md)）
+
+## 原則
+
+- 型は直接編集せず、案件フォルダへコピーして使う
+- 前フェーズの承認なしに次へ進まない
+- 費用が発生するもの（有料API・有料素材・サーバー）は採用前に必ず確認
+- 案件で得た知見は型本体へ還元する（型を育てる）
