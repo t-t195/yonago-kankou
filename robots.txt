@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# TODO: 独自ドメイン決定後にURLを変更
-Sitemap: https://t-t195.github.io/yonago-kankou/sitemap.xml

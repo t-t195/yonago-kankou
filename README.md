@@ -10,7 +10,6 @@ QUALITY-ROADMAP.md     … 精度を上げるために次に足すものの優�
 templates/             … 設計書・仕様書の型 11種（案件ごとにコピーして使う）
 .claude/skills/        … Claude Code skills 8種（/hearing 〜 /qa-launch）
 projects/              … 案件ごとの成果物置き場
-docs/ index.html ほか  … 型を一通り使って作った実例（米子観光ガイド）
 ```
 
 ## 制作フロー（型とskillsの対応）
