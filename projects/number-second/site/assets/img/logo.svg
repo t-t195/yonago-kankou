@@ -1,0 +1,11 @@
+<!-- TODO: 正式ロゴ（logo.webp等）に差し替え。これはたたき台用の仮ロゴ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img" aria-label="株式会社ナンバーセカンド">
+  <rect width="320" height="80" fill="none"/>
+  <g fill="#0a1828">
+    <text x="0" y="34" font-family="Inter, sans-serif" font-size="26" font-weight="700" letter-spacing="1">NUMBER</text>
+    <text x="0" y="60" font-family="Inter, sans-serif" font-size="26" font-weight="700" letter-spacing="1">SECOND<tspan fill="#c2a15a">.</tspan></text>
+  </g>
+  <line x1="150" y1="20" x2="150" y2="60" stroke="#e5e8ee" stroke-width="1"/>
+  <text x="166" y="38" font-family="'Noto Sans JP', sans-serif" font-size="13" font-weight="600" fill="#1f2733">株式会社</text>
+  <text x="166" y="58" font-family="'Noto Sans JP', sans-serif" font-size="15" font-weight="700" fill="#1f2733">ナンバーセカンド</text>
+</svg>
