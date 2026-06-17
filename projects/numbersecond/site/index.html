@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TODO: カンプ受領後に確定（業種・サービスに合わせて） -->
+  <title>【要編集】Number Second | サービス概要</title>
+  <meta name="description" content="【要編集】80〜120字。誰に・何を提供し・どう行動してほしいかを1文で。">
+  <link rel="canonical" href="https://example.com/"><!-- TODO: 本番URL -->
+
+  <!-- OGP（TODO: 本番URL・画像1200x630） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="【要編集】Number Second">
+  <meta property="og:description" content="【要編集】">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/images/ogp.png">
+
+  <!-- Webフォント（TODO: カンプのフォントに合わせて取捨。ウェイトは3つまで） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD（TODO: 業種に応じて Organization か LocalBusiness を確定） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "【要編集】Number Second",
+    "url": "https://example.com/",
+    "logo": "https://example.com/images/logo.png"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ===== ヘッダー ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#" class="site-header__logo">
+        <!-- TODO: ロゴ画像に差し替え（width/height指定） -->
+        <strong>Number Second</strong>
+      </a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">≡</button>
+      <nav class="site-nav" id="site-nav" aria-label="メインナビ">
+        <ul class="site-nav__list">
+          <!-- TODO: カンプのナビ項目に差し替え -->
+          <li><a href="#about">【要編集】特長</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#contact" class="btn btn--primary">【要編集】無料で相談する</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== FV（ファーストビュー） ===== -->
+    <section class="fv" id="fv">
+      <div class="container">
+        <!-- TODO: カンプのキャッチ・サブコピー・CTAに差し替え -->
+        <h1>【要編集】ここに、誰の何を解決するかが一目で分かるキャッチ</h1>
+        <p>【要編集】サブコピー。ベネフィットを補足する1〜2文。</p>
+        <p><a href="#contact" class="btn btn--primary">【要編集】無料で相談する</a></p>
+        <!-- TODO: ヒーロー画像（loading="eager"・width/height・alt必須） -->
+      </div>
+    </section>
+
+    <!-- ===== セクション群（カンプの並び通りに増減） ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>【要編集】セクション見出し（特長・選ばれる理由 等）</h2>
+        <p>【要編集】本文。リサーチ根拠に基づく訴求を入れる。</p>
+        <!-- TODO: カンプのセクションをここから順に追加 -->
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="container">
+        <h2>【要編集】中間CTA前の信頼要素（実績・お客様の声 等）</h2>
+        <p><a href="#contact" class="btn btn--primary">【要編集】無料で相談する</a></p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ（HTML標準のアコーディオン＝JS不要） ===== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <h2>よくある質問</h2>
+        <!-- TODO: ペルソナの不安に答えるQ&Aへ差し替え。回答は結論ファースト2〜4文 -->
+        <details>
+          <summary>【要編集】質問文（ユーザーの言葉で）</summary>
+          <p>【要編集】結論ファーストの回答。</p>
+        </details>
+        <details>
+          <summary>【要編集】質問文</summary>
+          <p>【要編集】回答。</p>
+        </details>
+        <!-- FAQをJSON-LDのFAQPageにも反映する（seo-aioフェーズ） -->
+      </div>
+    </section>
+
+    <!-- ===== CV（問い合わせ・予約） ===== -->
+    <section class="section section--surface" id="contact">
+      <div class="container container--narrow">
+        <h2>【要編集】お問い合わせ・ご予約</h2>
+        <p>【要編集】行動の後押し（所要時間・無料・返信目安など、最後の不安を消す一文）。</p>
+
+        <!-- TODO: 本番のフォーム送信先を確定（Googleフォーム/Formspree無料枠/mailto）。
+             予約が外部システムなら、このフォームを予約ボタンに置換 -->
+        <form action="#" method="post" novalidate>
+          <div class="form-field">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="message">ご相談内容</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <p><button type="submit" class="btn btn--primary">【要編集】この内容で相談する</button></p>
+        </form>
+
+        <!-- 電話CV（あれば）。TODO: 実番号に差し替え -->
+        <p>お電話でも承ります：<a href="tel:0000000000">000-0000-0000</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== フッター ===== -->
+  <footer class="site-footer section section--surface">
+    <div class="container">
+      <p><strong>Number Second</strong></p>
+      <!-- TODO: 運営者情報・住所・プライバシーポリシーリンク（E-E-A-T） -->
+      <p><a href="privacy.html">プライバシーポリシー</a></p>
+      <p><small>&copy; 2026 Number Second</small></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

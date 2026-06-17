@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: 本番ドメイン確定後に絶対URLへ
+Sitemap: https://example.com/sitemap.xml
