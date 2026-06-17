@@ -398,3 +398,136 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
   body { padding-bottom: 54px; } /* 追従CTA分の余白 */
 }
+
+/* ============================================================
+   追加コンポーネント（LP化で新設）
+   ============================================================ */
+
+/* 共通ヘルパー */
+.container--narrow { max-width: 800px; }
+section[id] { scroll-margin-top: 84px; }      /* 追従ヘッダー分のアンカー補正 */
+.sp-br { display: inline; }
+@media (min-width: 600px) { .sp-br { display: none; } }
+.btn--lg { padding: 1.15em 2.6em; font-size: 16px; }
+.req {
+  font-size: 11px; font-weight: 700; color: #fff; background: var(--color-accent);
+  padding: 2px 8px; border-radius: 4px; margin-left: 6px; vertical-align: 2px;
+}
+
+/* 14. 課題（PROBLEM） */
+.problem-list { display: grid; gap: 14px; max-width: 860px; margin-inline: auto; }
+.problem-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius);
+  padding: 20px 22px; box-shadow: var(--shadow);
+}
+.problem-item p { margin: 0; font-size: 15px; }
+.problem-item__no {
+  flex: none; font-family: var(--font-en); font-weight: 700; font-size: 18px;
+  color: var(--color-accent); line-height: 1.4;
+}
+.problem-lead {
+  text-align: center; margin: 34px auto 0; max-width: 760px; font-size: 16px;
+}
+
+/* 15. 提供価値（VALUE） */
+.value-card {
+  background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius);
+  padding: 30px 24px; box-shadow: var(--shadow); position: relative;
+}
+.value-card__no {
+  font-family: var(--font-en); font-size: 12px; letter-spacing: .12em;
+  color: var(--color-accent); margin-bottom: 14px;
+}
+.value-card__title {
+  font-size: 20px; margin-bottom: 12px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-accent); display: inline-block;
+}
+.value-card__text { font-size: 14px; color: var(--color-text-soft); margin: 0; }
+
+/* 16. 流れ（FLOW） */
+.flow-steps { display: grid; gap: 18px; counter-reset: none; }
+.flow-step {
+  position: relative; background: #fff; border: 1px solid var(--color-line);
+  border-radius: var(--radius); padding: 24px 24px 24px 84px; box-shadow: var(--shadow);
+}
+.flow-step__no {
+  position: absolute; left: 22px; top: 22px;
+  font-family: var(--font-en); font-weight: 700; font-size: 26px;
+  color: #fff; background: var(--grad-navy);
+  width: 46px; height: 46px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow-step__title { font-size: 18px; margin-bottom: 8px; }
+.flow-step p { margin: 0; font-size: 14px; color: var(--color-text-soft); }
+
+/* 17. お客様の声（VOICE） */
+.voice-card {
+  margin: 0; background: #fff; border: 1px solid var(--color-line);
+  border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.voice-card__role {
+  display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700;
+  color: var(--color-navy-2); background: var(--color-tint);
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+}
+.voice-card__quote {
+  margin: 0 0 16px; font-size: 15px; line-height: 1.9; position: relative; padding-top: 14px;
+}
+.voice-card__quote::before {
+  content: "“"; position: absolute; top: -10px; left: -4px;
+  font-family: var(--font-serif); font-size: 44px; color: var(--color-accent); line-height: 1;
+}
+.voice-card__by { font-size: 13px; color: var(--color-text-soft); margin-top: auto; }
+
+/* 18. FAQ（アコーディオン＝<details>） */
+.faq { display: grid; gap: 12px; }
+.faq__item {
+  background: #fff; border: 1px solid var(--color-line); border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq__item summary {
+  list-style: none; cursor: pointer; padding: 20px 52px 20px 22px; position: relative;
+  font-weight: 700; font-size: 16px;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "＋"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  color: var(--color-accent); font-weight: 700; transition: transform .3s;
+}
+.faq__item[open] summary::after { content: "－"; }
+.faq__body { padding: 0 22px 20px; }
+.faq__body p { margin: 0; font-size: 14px; color: var(--color-text); }
+
+/* 19. お問い合わせフォーム */
+.contact-form {
+  max-width: 720px; margin: 44px auto 0; text-align: left;
+  background: #fff; border-radius: var(--radius); padding: clamp(24px, 5vw, 40px);
+  box-shadow: var(--shadow-lg); color: var(--color-text);
+}
+.contact-form__row { display: grid; gap: 18px; grid-template-columns: 1fr; }
+.form-field { margin-bottom: 18px; }
+.form-field label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 7px; }
+.form-field input, .form-field textarea {
+  width: 100%; padding: 12px 14px; font: inherit; color: var(--color-text);
+  background: #fff; border: 1px solid var(--color-line); border-radius: 8px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-field input:focus, .form-field textarea:focus {
+  outline: none; border-color: var(--color-navy-2);
+  box-shadow: 0 0 0 3px rgba(26,58,107,.15);
+}
+.form-field textarea { resize: vertical; }
+.contact-form__note { font-size: 12px; color: var(--color-text-soft); margin: 4px 0 20px; }
+.contact-form__submit { text-align: center; }
+
+@media (min-width: 700px) {
+  .contact-form__row { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 600px) {
+  .problem-item p { font-size: 16px; }
+}
+@media (min-width: 900px) {
+  .flow-steps { grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+}

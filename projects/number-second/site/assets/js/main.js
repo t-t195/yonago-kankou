@@ -42,4 +42,19 @@
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* ④ 問い合わせフォーム（送信先未設定のたたき台用ガード）
+     TODO: 本番フォーム接続後はこのハンドラを外し、action/method を有効化する */
+  var form = document.querySelector(".contact-form");
+  if (form && form.getAttribute("action") === "#") {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var note = form.querySelector(".contact-form__note");
+      if (note) {
+        note.textContent = "※ 現在は試作版のため送信先が未接続です。お急ぎの場合は LINE・お電話をご利用ください。";
+        note.style.color = "#b00020";
+      }
+    });
+  }
 })();

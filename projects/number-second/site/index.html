@@ -34,6 +34,20 @@
   "areaServed": ["港区", "渋谷区", "新宿区"]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"相談だけ・相見積もりだけでも対応してもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい、歓迎です。他社見積の妥当性チェックや、相見積もりのみのご依頼にも中立的な立場で対応します。無理な営業はいたしません。"}},
+    {"@type":"Question","name":"小さな修繕1ヶ所からでも依頼できますか？","acceptedAnswer":{"@type":"Answer","text":"可能です。共用部の小修繕や設備の一部交換など、1ヶ所からお引き受けします。複数の困りごとをまとめてのご相談も歓迎です。"}},
+    {"@type":"Question","name":"見積が「高い」と感じたときはどうすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"資材費・人件費の高騰で相場自体が上がっています。当社では内訳を工事項目・数量・単価まで明示し、必要な工事と後回しできる工事を分けてご提案します。他社見積のセカンドオピニオンも承ります。"}},
+    {"@type":"Question","name":"対応エリアはどこですか？","acceptedAnswer":{"@type":"Answer","text":"港区・渋谷区・新宿区を中核に対応しています。中央区・千代田区・目黒区・品川区など隣接エリアもご相談ください。"}},
+    {"@type":"Question","name":"施工前後の写真報告はもらえますか？","acceptedAnswer":{"@type":"Answer","text":"はい。施工前・施工中・施工後・完了確認の写真をまとめてご報告します。オーナー様への説明や理事会・社内記録にそのままお使いいただけます。"}},
+    {"@type":"Question","name":"急ぎ・短工期の対応は可能ですか？","acceptedAnswer":{"@type":"Answer","text":"漏水など緊急性の高い案件や、退去後・営業日調整が必要な案件は、最短即日のお見積りで段取りします。状況により対応可否が変わるため、まずはご連絡ください。"}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -44,13 +58,13 @@
       <img src="assets/img/logo.svg" alt="株式会社ナンバーセカンド" width="160" height="40">
     </a>
     <nav class="site-nav" id="global-nav" aria-label="グローバルナビ">
-      <a href="service/index.html">対応工事</a>
-      <a href="target/index.html">お客様別ソリューション</a>
-      <a href="estimate.html">見積・費用</a>
-      <a href="cases.html">施工事例</a>
-      <a href="column/index.html">コラム</a>
-      <a href="company.html">会社案内</a>
-      <a href="contact.html" class="site-nav__cta">お問合せ</a>
+      <a href="#strength">強み</a>
+      <a href="#target">お客様別</a>
+      <a href="#service">対応工事</a>
+      <a href="#flow">流れ</a>
+      <a href="#cases">施工事例</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact" class="site-nav__cta">お問合せ</a>
     </nav>
     <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav">
       <span></span><span></span><span></span>
@@ -89,7 +103,7 @@
 </section>
 
 <!-- ============== TRUST BAR ============== -->
-<section class="trust-bar">
+<section class="trust-bar" id="strength">
   <div class="container trust-bar__inner">
     <div class="trust-bar__label">NUMBER SECOND の強み</div>
     <div class="trust-bar__items">
@@ -113,6 +127,23 @@
   </div>
 </section>
 
+<!-- ============== PROBLEM ============== -->
+<section class="section section--tint">
+  <div class="container">
+    <span class="eyebrow">YOUR CONCERNS</span>
+    <h2 class="section-title">こんなお困りごと、<br class="sp-br">ありませんか？<span class="en">Common concerns</span></h2>
+    <ul class="problem-list fade-up">
+      <li class="problem-item"><span class="problem-item__no">01</span><p>退去後や急ぎの修繕で、<strong>見積がなかなか出てこない</strong>。案件が前に進まない。</p></li>
+      <li class="problem-item"><span class="problem-item__no">02</span><p>資材も人件費も高騰。<strong>この見積、本当に妥当？</strong>と判断できない。</p></li>
+      <li class="problem-item"><span class="problem-item__no">03</span><p>防水・配管・電気…と<strong>工事ごとに業者を探すのが手間</strong>。窓口を一本化したい。</p></li>
+      <li class="problem-item"><span class="problem-item__no">04</span><p>写真や報告が不足で、<strong>オーナー・住民・社内に説明しづらい</strong>。後で揉めたくない。</p></li>
+      <li class="problem-item"><span class="problem-item__no">05</span><p>全部直すと予算オーバー。<strong>何を今やり、何を後回しにできる</strong>のか整理したい。</p></li>
+    </ul>
+    <p class="problem-lead">ひとつでも当てはまるなら、ナンバーセカンドにご相談ください。<br><strong>「説明しやすく・判断しやすく・後で揉めにくい」</strong>修繕の窓口になります。</p>
+    <div class="section__more"><a href="#contact" class="btn btn--primary">まずは無料で相談する</a></div>
+  </div>
+</section>
+
 <!-- ============== ABOUT (Concierge Pitch) ============== -->
 <section class="section">
   <div class="container">
@@ -126,22 +157,52 @@
         <p>エントランスの自動ドア化、共用照明の交換、ゴミ置き場の囲い、漏水補修、外壁タイルの剥がれ。大規模な工事業者だと小回りが効かず、町場の業者だと相場感や仕上がりがバラつく。ナンバーセカンドは、その「あいだ」を担います。</p>
         <p>マンション管理組合の理事会経験をもとに、他組合の相場感も共有しながら、相見積もり・複数工事の調整・予算配分の相談まで対応する &quot;建物コンシェルジュ&quot; です。</p>
         <div class="feature__actions">
-          <a href="company.html" class="btn btn--primary">私たちについて</a>
-          <a href="target/index.html" class="btn btn--ghost">お客様別ソリューション</a>
+          <a href="#strength" class="btn btn--primary">私たちの強み</a>
+          <a href="#target" class="btn btn--ghost">お客様別ソリューション</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============== TARGETS ============== -->
+<!-- ============== VALUE ============== -->
 <section class="section section--tint">
+  <div class="container">
+    <span class="eyebrow">OUR VALUE</span>
+    <h2 class="section-title">「頼んでよかった」を生む、<br class="sp-br">4つの提供価値<span class="en">Why clients choose us</span></h2>
+    <div class="card-grid card-grid--4 fade-up">
+      <div class="value-card">
+        <div class="value-card__no">VALUE / 01</div>
+        <h3 class="value-card__title">説明しやすい</h3>
+        <p class="value-card__text">工事項目・数量・単価まで明示した見積と、施工前後の写真報告。オーナー・住民・社内にそのまま説明できます。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__no">VALUE / 02</div>
+        <h3 class="value-card__title">判断しやすい</h3>
+        <p class="value-card__text">必要な工事と後回しできる工事を分けてご提案。予算の中で「今やるべきこと」が一目でわかります。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__no">VALUE / 03</div>
+        <h3 class="value-card__title">後で揉めにくい</h3>
+        <p class="value-card__text">追加費用の条件や対応範囲を事前に明確化。中立的な相見積もりで、妥当性に納得して進められます。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-card__no">VALUE / 04</div>
+        <h3 class="value-card__title">窓口ひとつで一括</h3>
+        <p class="value-card__text">防水・配管・電気・建具・内装まで横断対応。複数工事の調整・手配の手間を、まとめて引き受けます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TARGETS ============== -->
+<section class="section" id="target">
   <div class="container">
     <span class="eyebrow">FOR WHOM</span>
     <h2 class="section-title">お客様別ソリューション<span class="en">For your role</span></h2>
 
     <div class="card-grid card-grid--3 fade-up">
-      <a href="target/management-company.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">TARGET / 01</div>
           <div class="target-card__title-en">MANAGEMENT COMPANY</div>
@@ -149,10 +210,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">不動産管理会社さま</h3>
           <p class="target-card__pain">見積スピード重視。最短即日訪問・即提示で案件を前に進めます。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="target/mansion-association.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">TARGET / 02</div>
           <div class="target-card__title-en">MANSION ASSOCIATION</div>
@@ -160,10 +221,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">マンション管理組合さま</h3>
           <p class="target-card__pain">自主管理含む。中立的な相見積もり、他組合の相場知見を共有。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="target/building-owner.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">TARGET / 03</div>
           <div class="target-card__title-en">BUILDING OWNER</div>
@@ -171,10 +232,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">一棟・賃貸オーナーさま</h3>
           <p class="target-card__pain">共用部維持と家賃改善のリノベを横断対応。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="target/investor-reseller.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">TARGET / 04</div>
           <div class="target-card__title-en">INVESTOR & RESELLER</div>
@@ -182,10 +243,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">不動産投資家・再販業者さま</h3>
           <p class="target-card__pain">売却・賃貸の目的別に、スピード重視のリノベ仕様提案。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="target/hotel-minpaku.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">TARGET / 05</div>
           <div class="target-card__title-en">HOTEL & MINPAKU</div>
@@ -193,10 +254,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">法人店舗・民泊/旅館業さま</h3>
           <p class="target-card__pain">宿泊施設化の企画から内装工事まで一括対応。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="target/index.html" class="target-card target-card--all">
+      <a href="#contact" class="target-card target-card--all">
         <div class="target-card__body target-card__body--center">
           <span class="eyebrow eyebrow--soft">VIEW ALL</span>
           <h3 class="target-card__title">該当が複数ある<br>方はこちら</h3>
@@ -208,13 +269,13 @@
 </section>
 
 <!-- ============== SERVICES ============== -->
-<section class="section">
+<section class="section section--tint" id="service">
   <div class="container">
     <span class="eyebrow">SERVICES</span>
     <h2 class="section-title">対応工事<span class="en">Common-area maintenance & renovation</span></h2>
 
     <div class="card-grid card-grid--3 fade-up">
-      <a href="service/waterproof.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 01</div>
           <div class="target-card__title-en">WATERPROOFING</div>
@@ -222,10 +283,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">防水工事</h3>
           <p class="target-card__pain">屋上・ベランダ・外壁の防水。雨漏り原因調査もセットで。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/plumbing.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 02</div>
           <div class="target-card__title-en">PLUMBING / LEAK</div>
@@ -233,10 +294,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">配管・漏水修繕</h3>
           <p class="target-card__pain">給排水管のリニューアル、漏水箇所の特定と復旧まで。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/electrical.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 03</div>
           <div class="target-card__title-en">ELECTRICAL / LIGHTING</div>
@@ -244,10 +305,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">電気・照明工事</h3>
           <p class="target-card__pain">共用照明のLED化、配線・分電盤の更新、センサー化。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/doors.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 04</div>
           <div class="target-card__title-en">DOORS & AUTO-DOORS</div>
@@ -255,10 +316,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">建具・自動ドア</h3>
           <p class="target-card__pain">エントランスの自動ドア化、戸建具・玄関ドアの更新。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/tile-exterior.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 05</div>
           <div class="target-card__title-en">TILES & EXTERIOR</div>
@@ -266,10 +327,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">タイル・外構</h3>
           <p class="target-card__pain">外壁タイル補修、ゴミ置き場の囲い、駐輪場・外構整備。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/common-area.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 06</div>
           <div class="target-card__title-en">COMMON AREA RENEWAL</div>
@@ -277,10 +338,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">共用部リニューアル</h3>
           <p class="target-card__pain">エントランス・廊下・宅配ボックス周りの印象改善。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/value-up.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 07</div>
           <div class="target-card__title-en">VALUE-UP RENOVATION</div>
@@ -288,10 +349,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">価値向上リノベーション</h3>
           <p class="target-card__pain">家賃改善・売却前リノベ・民泊転用の仕様提案。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/individual.html" class="target-card">
+      <a href="#contact" class="target-card">
         <div class="target-card__visual">
           <div class="target-card__num">SERVICE / 08</div>
           <div class="target-card__title-en">FOR INDIVIDUAL</div>
@@ -299,10 +360,10 @@
         <div class="target-card__body">
           <h3 class="target-card__title">個人のお客様向けリフォーム</h3>
           <p class="target-card__pain">水回り・室内リフォーム・退去時の原状回復まで。1ヶ所からOK。</p>
-          <span class="target-card__link">詳しく見る</span>
+          <span class="target-card__link">相談する</span>
         </div>
       </a>
-      <a href="service/index.html" class="target-card target-card--all">
+      <a href="#contact" class="target-card target-card--all">
         <div class="target-card__body target-card__body--center">
           <span class="eyebrow eyebrow--soft">VIEW ALL</span>
           <h3 class="target-card__title">すべての<br>対応工事を見る</h3>
@@ -313,14 +374,30 @@
   </div>
 </section>
 
+<!-- ============== FLOW ============== -->
+<section class="section" id="flow">
+  <div class="container">
+    <span class="eyebrow">FLOW</span>
+    <h2 class="section-title">ご相談からアフターまでの流れ<span class="en">How it works</span></h2>
+    <ol class="flow-steps fade-up">
+      <li class="flow-step"><span class="flow-step__no">01</span><h3 class="flow-step__title">お問い合わせ・ご相談</h3><p>LINE・電話・フォームから。「相談だけ」「相見積もりだけ」も歓迎です。写真があればスムーズです。</p></li>
+      <li class="flow-step"><span class="flow-step__no">02</span><h3 class="flow-step__title">現地調査</h3><p>建物の状況を確認し、必要な工事と優先順位を整理。複数の困りごともまとめて拝見します。</p></li>
+      <li class="flow-step"><span class="flow-step__no">03</span><h3 class="flow-step__title">写真付き見積のご提示</h3><p>工事項目・数量・単価・対応範囲を明示。最短即日でご提示し、自己負担の目安もご説明します。</p></li>
+      <li class="flow-step"><span class="flow-step__no">04</span><h3 class="flow-step__title">ご契約・施工</h3><p>ご納得のうえ着工。近隣・住民・営業日に配慮し、養生・作業時間も調整して進めます。</p></li>
+      <li class="flow-step"><span class="flow-step__no">05</span><h3 class="flow-step__title">写真報告・完了確認</h3><p>施工前・中・後の写真をまとめてご報告。オーナー説明や理事会・社内記録にお使いいただけます。</p></li>
+      <li class="flow-step"><span class="flow-step__no">06</span><h3 class="flow-step__title">アフターフォロー</h3><p>工事後も窓口は継続。気になる点があればいつでもご連絡ください。継続的な修繕相談も承ります。</p></li>
+    </ol>
+  </div>
+</section>
+
 <!-- ============== CASES ============== -->
-<section class="section section--tint">
+<section class="section section--tint" id="cases">
   <div class="container">
     <span class="eyebrow">CASE STUDIES</span>
     <h2 class="section-title">施工事例<span class="en">Recent projects</span></h2>
 
     <div class="card-grid card-grid--3 fade-up">
-      <a href="cases.html#case01" class="case-card">
+      <a href="#contact" class="case-card">
         <div class="case-card__visual case-card__visual--blue">
           <div class="case-card__tags"><span class="tag">共用部</span></div>
         </div>
@@ -333,7 +410,7 @@
           </div>
         </div>
       </a>
-      <a href="cases.html#case02" class="case-card">
+      <a href="#contact" class="case-card">
         <div class="case-card__visual case-card__visual--cream">
           <div class="case-card__tags"><span class="tag">防水</span></div>
         </div>
@@ -346,7 +423,7 @@
           </div>
         </div>
       </a>
-      <a href="cases.html#case03" class="case-card">
+      <a href="#contact" class="case-card">
         <div class="case-card__visual case-card__visual--gray">
           <div class="case-card__tags"><span class="tag">小修繕</span></div>
         </div>
@@ -361,67 +438,33 @@
       </a>
     </div>
     <div class="section__more">
-      <a href="cases.html" class="btn btn--ghost">施工事例をすべて見る</a>
+      <a href="#contact" class="btn btn--ghost">似た事例について相談する</a>
     </div>
   </div>
 </section>
 
-<!-- ============== COLUMN ============== -->
+<!-- ============== VOICE ============== -->
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow">COLUMN</span>
-        <h2 class="section-title section-title--flush">新着コラム<span class="en">Latest insights</span></h2>
-      </div>
-      <a href="column/index.html" class="btn btn--ghost">すべてのコラム</a>
-    </div>
-
-    <div class="card-grid card-grid--4 fade-up">
-      <a href="column/cost-too-high.html" class="post-card">
-        <div class="post-card__thumb post-card__thumb--blue">
-          <span class="post-card__category">費用・見積</span>
-        </div>
-        <div class="post-card__body">
-          <div class="post-card__meta"><time datetime="2026-05-20">2026.05.20</time></div>
-          <h3 class="post-card__title">修繕費用が「高い」と感じた時に確認すべき5つのポイント</h3>
-          <p class="post-card__excerpt">妥当な値上げと便乗値上げを見分けるためのチェック観点。</p>
-          <span class="post-card__more">記事を読む</span>
-        </div>
-      </a>
-      <a href="column/switch-contractor.html" class="post-card">
-        <div class="post-card__thumb post-card__thumb--gold">
-          <span class="post-card__category">業者選び</span>
-        </div>
-        <div class="post-card__body">
-          <div class="post-card__meta"><time datetime="2026-05-12">2026.05.12</time></div>
-          <h3 class="post-card__title">修繕業者を見直すべき判断基準7つ</h3>
-          <p class="post-card__excerpt">業者見直し検討の前に整理しておきたい判断軸を現場目線で。</p>
-          <span class="post-card__more">記事を読む</span>
-        </div>
-      </a>
-      <a href="column/report-content.html" class="post-card">
-        <div class="post-card__thumb post-card__thumb--gray">
-          <span class="post-card__category">管理会社向け</span>
-        </div>
-        <div class="post-card__body">
-          <div class="post-card__meta"><time datetime="2026-05-02">2026.05.02</time></div>
-          <h3 class="post-card__title">管理会社が修繕業者に求めるべき報告内容</h3>
-          <p class="post-card__excerpt">標準化すべき完了報告書フォーマットを実務目線で解説。</p>
-          <span class="post-card__more">記事を読む</span>
-        </div>
-      </a>
-      <a href="column/owner-burden.html" class="post-card">
-        <div class="post-card__thumb post-card__thumb--cream">
-          <span class="post-card__category">管理組合向け</span>
-        </div>
-        <div class="post-card__body">
-          <div class="post-card__meta"><time datetime="2026-04-22">2026.04.22</time></div>
-          <h3 class="post-card__title">修繕積立金、本当に妥当？相見積もりで確認したい3つ</h3>
-          <p class="post-card__excerpt">管理会社経由 vs 直接発注の費用差を、現場の相場感で整理。</p>
-          <span class="post-card__more">記事を読む</span>
-        </div>
-      </a>
+    <span class="eyebrow">CLIENT VOICE</span>
+    <h2 class="section-title">お客様の声<span class="en">What our clients say</span></h2>
+    <!-- 【要編集】実名・物件・コメントは取材後に差し替え。掲載許可の取得日も記録すること -->
+    <div class="card-grid card-grid--3 fade-up">
+      <figure class="voice-card">
+        <div class="voice-card__role">不動産管理会社さま</div>
+        <blockquote class="voice-card__quote">退去後の見積がとにかく早く、写真報告がそのままオーナー説明に使えるので助かっています。複数の小修繕もまとめてお願いできるのが一番のメリットです。</blockquote>
+        <figcaption class="voice-card__by">【要編集】港区・賃貸管理 ご担当者さま</figcaption>
+      </figure>
+      <figure class="voice-card">
+        <div class="voice-card__role">マンション管理組合さま</div>
+        <blockquote class="voice-card__quote">他組合の相場も教えてくれたので、理事会で「なぜこの金額か」を住民に説明しやすかったです。中立的に相見積もりを見てもらえて納得して進められました。</blockquote>
+        <figcaption class="voice-card__by">【要編集】渋谷区・分譲マンション 理事さま</figcaption>
+      </figure>
+      <figure class="voice-card">
+        <div class="voice-card__role">建物オーナーさま</div>
+        <blockquote class="voice-card__quote">「全部直す」ではなく、今やるべき工事と後回しできる工事を分けて提案してくれました。空室対策として効く部分に絞れて、費用を抑えられました。</blockquote>
+        <figcaption class="voice-card__by">【要編集】新宿区・一棟オーナーさま</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -437,7 +480,7 @@
         <span class="eyebrow">FOR INDIVIDUAL</span>
         <h2>個人のお客様向け<br>リフォームも承ります。</h2>
         <p>ナンバーセカンドは、以前より個人のお客様の水回りリフォーム・内装リフォーム・退去時の原状回復にも対応しています。今でも継続してお引き受けしますので、お気軽にご相談ください。</p>
-        <a href="service/individual.html" class="btn btn--primary">個人向けリフォーム</a>
+        <a href="#contact" class="btn btn--primary">個人向けリフォーム</a>
       </div>
     </div>
   </div>
@@ -451,44 +494,92 @@
     <p class="section-lead">港区・渋谷区・新宿区を中核エリアとして対応しています。隣接エリアは応相談です。</p>
 
     <div class="card-grid card-grid--3 fade-up">
-      <a href="area/minato.html" class="card">
+      <a href="#contact" class="card">
         <h3 class="card__title">港区エリア</h3>
         <p class="card__text">南青山・赤坂・六本木・麻布・白金・芝・港南。本社所在地で最も実績の厚いエリア。</p>
-        <span class="card__link">詳しく見る</span>
+        <span class="card__link">相談する</span>
       </a>
-      <a href="area/shibuya.html" class="card">
+      <a href="#contact" class="card">
         <h3 class="card__title">渋谷区エリア</h3>
         <p class="card__text">神宮前・表参道・恵比寿・代官山・代々木・幡ヶ谷。</p>
-        <span class="card__link">詳しく見る</span>
+        <span class="card__link">相談する</span>
       </a>
-      <a href="area/shinjuku.html" class="card">
+      <a href="#contact" class="card">
         <h3 class="card__title">新宿区エリア</h3>
         <p class="card__text">四谷・神楽坂・新宿・西新宿・高田馬場。</p>
-        <span class="card__link">詳しく見る</span>
+        <span class="card__link">相談する</span>
       </a>
     </div>
     <p class="area__note">※ 中央区・千代田区・目黒区・品川区など隣接エリアもご相談ください。</p>
   </div>
 </section>
 
+<!-- ============== FAQ ============== -->
+<section class="section section--tint" id="faq">
+  <div class="container container--narrow">
+    <span class="eyebrow">FAQ</span>
+    <h2 class="section-title">よくあるご質問<span class="en">Frequently asked questions</span></h2>
+    <div class="faq fade-up">
+      <details class="faq__item"><summary>相談だけ・相見積もりだけでも対応してもらえますか？</summary><div class="faq__body"><p>はい、歓迎です。他社見積の妥当性チェックや、相見積もりのみのご依頼にも中立的な立場で対応します。無理な営業はいたしません。</p></div></details>
+      <details class="faq__item"><summary>小さな修繕1ヶ所からでも依頼できますか？</summary><div class="faq__body"><p>可能です。共用部の小修繕や設備の一部交換など、1ヶ所からお引き受けします。複数の困りごとをまとめてのご相談も歓迎です。</p></div></details>
+      <details class="faq__item"><summary>見積が「高い」と感じたときはどうすればよいですか？</summary><div class="faq__body"><p>資材費・人件費の高騰で相場自体が上がっています。当社では内訳を工事項目・数量・単価まで明示し、必要な工事と後回しできる工事を分けてご提案します。他社見積のセカンドオピニオンも承ります。</p></div></details>
+      <details class="faq__item"><summary>対応エリアはどこですか？</summary><div class="faq__body"><p>港区・渋谷区・新宿区を中核に対応しています。中央区・千代田区・目黒区・品川区など隣接エリアもご相談ください。</p></div></details>
+      <details class="faq__item"><summary>施工前後の写真報告はもらえますか？</summary><div class="faq__body"><p>はい。施工前・施工中・施工後・完了確認の写真をまとめてご報告します。オーナー様への説明や理事会・社内記録にそのままお使いいただけます。</p></div></details>
+      <details class="faq__item"><summary>急ぎ・短工期の対応は可能ですか？</summary><div class="faq__body"><p>漏水など緊急性の高い案件や、退去後・営業日調整が必要な案件は、最短即日のお見積りで段取りします。状況により対応可否が変わるため、まずはご連絡ください。</p></div></details>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<!-- ============== CTA + FOOTER ============== -->
-<section class="cta-section">
+<!-- ============== CONTACT ============== -->
+<section class="cta-section" id="contact">
   <div class="container">
     <span class="eyebrow eyebrow--soft">CONTACT US</span>
     <h2>建物の困りごと、<br>「窓口ひとつ」で解決。</h2>
-    <p>急ぎは電話、写真があるなら LINE、じっくり相談はフォームでどうぞ。「相談だけ」「相見積もりだけ」のご連絡も歓迎です。</p>
+    <p>急ぎは電話、写真があるなら LINE、じっくり相談は下のフォームでどうぞ。<br>「相談だけ」「相見積もりだけ」のご連絡も歓迎です。</p>
     <div class="cta-section__actions">
       <!-- TODO: 公式LINEのURLに差し替え -->
       <a href="https://line.me/" class="btn btn--accent">LINEで相談する</a>
       <a href="tel:0367210455" class="btn btn--light">電話 03-6721-0455</a>
-      <a href="contact.html" class="btn btn--ghost btn--ghost-on-dark">お問い合わせフォーム</a>
     </div>
     <div class="cta-section__contacts">
       <div>受付 平日9:00-18:00</div>
       <div>FAX 03-6721-0456</div>
     </div>
+
+    <!-- TODO: 本番のフォーム送信先を確定（Googleフォーム/Formspree無料枠/サーバー）。
+         action と method を差し替え、送信後の遷移先(thanks)も用意する -->
+    <form class="contact-form" action="#" method="post" novalidate>
+      <div class="contact-form__row">
+        <div class="form-field">
+          <label for="cf-name">お名前 <span class="req">必須</span></label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-company">会社名・組合名</label>
+          <input type="text" id="cf-company" name="company" autocomplete="organization">
+        </div>
+      </div>
+      <div class="contact-form__row">
+        <div class="form-field">
+          <label for="cf-email">メールアドレス <span class="req">必須</span></label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-tel">電話番号</label>
+          <input type="tel" id="cf-tel" name="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="cf-message">ご相談内容 <span class="req">必須</span></label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="建物の所在地・お困りの箇所・ご希望など。写真は送信後のご案内に従って添付いただけます。" required></textarea>
+      </div>
+      <p class="contact-form__note">送信いただいた内容は、ご相談対応のみに利用します。<!-- TODO: privacy.html 公開後にプライバシーポリシーへのリンクを追加 --></p>
+      <div class="contact-form__submit">
+        <button type="submit" class="btn btn--accent btn--lg">この内容で相談する</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -506,35 +597,34 @@
       <div class="site-footer__col">
         <h4>Services</h4>
         <ul>
-          <li><a href="service/waterproof.html">防水工事</a></li>
-          <li><a href="service/plumbing.html">配管・漏水修繕</a></li>
-          <li><a href="service/electrical.html">電気・照明工事</a></li>
-          <li><a href="service/doors.html">建具・自動ドア</a></li>
-          <li><a href="service/tile-exterior.html">タイル・外構</a></li>
-          <li><a href="service/common-area.html">共用部リニューアル</a></li>
-          <li><a href="service/value-up.html">価値向上リノベ</a></li>
-          <li><a href="service/individual.html">個人向けリフォーム</a></li>
+          <li><a href="#contact">防水工事</a></li>
+          <li><a href="#contact">配管・漏水修繕</a></li>
+          <li><a href="#contact">電気・照明工事</a></li>
+          <li><a href="#contact">建具・自動ドア</a></li>
+          <li><a href="#contact">タイル・外構</a></li>
+          <li><a href="#contact">共用部リニューアル</a></li>
+          <li><a href="#contact">価値向上リノベ</a></li>
+          <li><a href="#contact">個人向けリフォーム</a></li>
         </ul>
       </div>
       <div class="site-footer__col">
         <h4>For You</h4>
         <ul>
-          <li><a href="target/management-company.html">管理会社さま</a></li>
-          <li><a href="target/mansion-association.html">管理組合さま</a></li>
-          <li><a href="target/building-owner.html">一棟・賃貸オーナーさま</a></li>
-          <li><a href="target/investor-reseller.html">投資家・再販業者さま</a></li>
-          <li><a href="target/hotel-minpaku.html">法人店舗・民泊／旅館さま</a></li>
+          <li><a href="#contact">管理会社さま</a></li>
+          <li><a href="#contact">管理組合さま</a></li>
+          <li><a href="#contact">一棟・賃貸オーナーさま</a></li>
+          <li><a href="#contact">投資家・再販業者さま</a></li>
+          <li><a href="#contact">法人店舗・民泊／旅館さま</a></li>
         </ul>
       </div>
       <div class="site-footer__col">
         <h4>Information</h4>
         <ul>
-          <li><a href="estimate.html">見積・費用</a></li>
-          <li><a href="cases.html">施工事例</a></li>
-          <li><a href="column/index.html">コラム</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="company.html">会社案内</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="#contact">見積・費用</a></li>
+          <li><a href="#cases">施工事例</a></li>
+          <li><a href="#faq">よくあるご質問</a></li>
+          <li><a href="#strength">強み・選ばれる理由</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
         </ul>
       </div>
     </div>
@@ -542,7 +632,7 @@
       <div>© <span data-year>2026</span> NUMBER SECOND INC. All rights reserved.</div>
       <div class="site-footer__legal">
         <a href="privacy.html">プライバシーポリシー</a>
-        <a href="company.html">会社案内</a>
+        <a href="#contact">会社案内</a>
       </div>
     </div>
   </div>
