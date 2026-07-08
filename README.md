@@ -6,11 +6,21 @@
 
 ```
 WORKFLOW.md            … 全体フロー・運用ルール（まずこれを読む）
+MCP-INTEGRATION.md     … MCP連携の現状分析・接続マップ・接続手順
 QUALITY-ROADMAP.md     … 精度を上げるために次に足すものの優先順位
 templates/             … 設計書・仕様書の型 11種（案件ごとにコピーして使う）
-.claude/skills/        … Claude Code skills 8種（/hearing 〜 /qa-launch）
+library/presets/       … LPタイプ別プリセット3種（採用/商材/商品）
+tools/                 … lp-quality-check.mjs（自動品質ゲート）
+.claude/skills/        … Claude Code skills 9種（/hearing 〜 /qa-launch, /lp）
 projects/              … 案件ごとの成果物置き場
 ```
+
+## LPを素早く作る（/lp 一気通貫フロー）
+
+```
+/lp <案件名> <recruit|service|product>
+```
+タイプ別プリセットで実装→ `node tools/lp-quality-check.mjs` 合格まで検証→プレビュー配布まで一括。MCP（Google Drive/Figma/Canva/Vercel）接続時は素材取得・カンプ変換・画像生成・URL共有を自動活用する（詳細: [MCP-INTEGRATION.md](MCP-INTEGRATION.md)）。
 
 ## 制作フロー（型とskillsの対応）
 

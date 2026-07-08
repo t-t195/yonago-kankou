@@ -41,3 +41,9 @@ projects/             … 案件ごとの成果物置き場（推奨運用）
 ## skillsの使い方
 
 Claude Code でこのリポジトリを開き、`/hearing 案件名` のように呼び出すと、対応する型を `projects/<案件名>/` にコピーし、対話・リサーチで埋めていきます。各skillの定義は `.claude/skills/<name>/SKILL.md`。
+
+## LP特化ショートカット（/lp）と品質ゲート
+
+単一LPの案件は `/lp <案件名> <recruit|service|product>` で一気通貫制作できる（プリセット: `library/presets/`）。
+**品質ゲート**: LPの完成条件は `node tools/lp-quality-check.mjs <site>/index.html` の FAIL 0件。/lp・/build・/qa-launch の完了時に必ず実行する（手作業のgrep検証は廃止）。
+MCP接続時の役割分担・接続手順は [MCP-INTEGRATION.md](MCP-INTEGRATION.md) を参照。
