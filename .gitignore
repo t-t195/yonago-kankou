@@ -1,0 +1,20 @@
+# 配布用の生成物（本物は projects/<案件名>/site/ にある。ZIPや1ファイル版は都度生成する）
+*.zip
+*-1file.html
+*preview*.html
+
+# OS・エディタのごみ
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
+# ローカル設定（個人の許可履歴など。共有しない）
+.claude/settings.local.json
+
+# 依存・ビルド（将来SSG等を使う場合に備えて）
+node_modules/
+dist/
+.env
+.env.*
